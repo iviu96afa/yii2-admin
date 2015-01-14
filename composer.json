@@ -1,7 +1,7 @@
 {
-    "name": "mdmsoft/yii2-admin",
-    "description": "Auth manager for Yii2 ",
-    "keywords": ["yii", "admin", "auth"],
+    "name": "iviu96afa/yii2-admin",
+    "description": "Enhanced auth manager for Yii2",
+    "keywords": ["yii2", "admin", "auth"],
     "type": "yii2-extension",
     "license": "BSD-3-Clause",
     "support": {
@@ -23,7 +23,7 @@
     },
     "autoload": {
         "psr-4": {
-            "mdm\\admin\\": ""
+            "iviu96afa\\admin\\": ""
         }
     },
     "extra": {
