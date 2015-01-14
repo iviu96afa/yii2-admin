@@ -19,8 +19,8 @@ use yii\rbac\Item;
  * @author Misbahul D Munir <misbahuldmunir@gmail.com>
  * @since 1.0
  */
-class AssignmentController extends Controller
-{
+class AssignmentController extends Controller {
+
     public $userClassName;
     public $idField = 'id';
     public $usernameField = 'username';
@@ -29,8 +29,7 @@ class AssignmentController extends Controller
     /**
      * @inheritdoc
      */
-    public function init()
-    {
+    public function init() {
         parent::init();
         if ($this->userClassName === null) {
             $this->userClassName = Yii::$app->getUser()->identityClass;
@@ -41,8 +40,7 @@ class AssignmentController extends Controller
     /**
      * @inheritdoc
      */
-    public function behaviors()
-    {
+    public function behaviors() {
         return [
             'verbs' => [
                 'class' => VerbFilter::className(),
@@ -57,9 +55,7 @@ class AssignmentController extends Controller
      * Lists all Assignment models.
      * @return mixed
      */
-    public function actionIndex()
-    {
-
+    public function actionIndex() {
         if ($this->searchClass === null) {
             $searchModel = new AssignmentSearch;
         } else {
@@ -70,10 +66,10 @@ class AssignmentController extends Controller
         $dataProvider = $searchModel->search(\Yii::$app->request->getQueryParams(), $this->userClassName, $this->usernameField);
 
         return $this->render('index', [
-                'dataProvider' => $dataProvider,
-                'searchModel' => $searchModel,
-                'idField' => $this->idField,
-                'usernameField' => $this->usernameField,
+                    'dataProvider' => $dataProvider,
+                    'searchModel' => $searchModel,
+                    'idField' => $this->idField,
+                    'usernameField' => $this->usernameField,
         ]);
     }
 
@@ -82,8 +78,7 @@ class AssignmentController extends Controller
      * @param  integer $id
      * @return mixed
      */
-    public function actionView($id)
-    {
+    public function actionView($id) {
         $model = $this->findModel($id);
         $authManager = Yii::$app->authManager;
         $avaliable = [];
@@ -104,11 +99,11 @@ class AssignmentController extends Controller
         }
 
         return $this->render('view', [
-                'model' => $model,
-                'avaliable' => $avaliable,
-                'assigned' => $assigned,
-                'idField' => $this->idField,
-                'usernameField' => $this->usernameField,
+                    'model' => $model,
+                    'avaliable' => $avaliable,
+                    'assigned' => $assigned,
+                    'idField' => $this->idField,
+                    'usernameField' => $this->usernameField,
         ]);
     }
 
@@ -118,8 +113,7 @@ class AssignmentController extends Controller
      * @param  string  $action
      * @return mixed
      */
-    public function actionAssign($id, $action)
-    {
+    public function actionAssign($id, $action) {
         $post = Yii::$app->request->post();
         $roles = $post['roles'];
         $manager = Yii::$app->authManager;
@@ -160,8 +154,7 @@ class AssignmentController extends Controller
      * @param  string  $term
      * @return string
      */
-    public function actionRoleSearch($id, $target, $term = '')
-    {
+    public function actionRoleSearch($id, $target, $term = '') {
         $authManager = Yii::$app->authManager;
         $avaliable = [];
         $assigned = [];
@@ -206,8 +199,7 @@ class AssignmentController extends Controller
      * @return Assignment the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
-    protected function findModel($id)
-    {
+    protected function findModel($id) {
         $class = $this->userClassName;
         if (($model = $class::findIdentity($id)) !== null) {
             return $model;
@@ -215,4 +207,5 @@ class AssignmentController extends Controller
             throw new NotFoundHttpException('The requested page does not exist.');
         }
     }
+
 }

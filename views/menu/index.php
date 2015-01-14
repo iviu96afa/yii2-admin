@@ -1,8 +1,7 @@
 <?php
 
 use yii\helpers\Html;
-use yii\grid\GridView;
-use yii\widgets\Pjax;
+use kartik\grid\GridView;
 
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -12,35 +11,40 @@ $this->title = Yii::t('rbac-admin', 'Menus');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="menu-index">
-
-    <h1><?= Html::encode($this->title) ?></h1>
-    <?php // echo $this->render('_search', ['model' => $searchModel]);  ?>
-
-    <p>
-        <?= Html::a(Yii::t('rbac-admin', 'Create Menu'), ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
-
     <?php
-    Pjax::begin(['formSelector' => 'form', 'enablePushState' => false]);
+    $columns = [
+        ['class' => 'yii\grid\SerialColumn'],
+        'name',
+        [
+            'attribute' => 'menuParent.name',
+            'filter' => Html::activeTextInput($searchModel, 'parent_name', [
+                'class' => 'form-control', 'id' => null
+            ]),
+            'label' => Yii::t('rbac-admin', 'Parent'),
+        ],
+        'route',
+        'order',
+        ['class' => 'yii\grid\ActionColumn'],
+    ];
     echo GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-            'name',
-            [
-                'attribute' => 'menuParent.name',
-                'filter' => Html::activeTextInput($searchModel, 'parent_name', [
-                    'class' => 'form-control', 'id' => null
-                ]),
-                'label' => Yii::t('rbac-admin', 'Parent'),
-            ],
-            'route',
-            'order',
-            ['class' => 'yii\grid\ActionColumn'],
+        'columns' => $columns,
+        'responsive' => true,
+        'floatHeader' => true,
+        'hover' => true,
+        'pjax' => true,
+        'pjaxSettings' => [
+            'neverTimeout' => true,
         ],
+        'panel' => [
+            'heading' => '<h3 class="panel-title"><i class="glyphicon glyphicon-globe"></i> ' . $this->title . ' </h3>',
+            'type' => 'default',
+            'before' => Html::a('<i class="glyphicon glyphicon-plus"></i> ' . Yii::t('app', 'Create'), ['create'], ['class' => 'btn btn-info']),
+            'after' => Html::a('<i class="glyphicon glyphicon-repeat"></i> ' . Yii::t('app', 'Reset Grid'), ['index'], ['class' => 'btn btn-info']),
+            'showFooter' => false
+        ]
     ]);
-    Pjax::end();
     ?>
 
 </div>

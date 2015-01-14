@@ -11,29 +11,29 @@ use yii\data\ActiveDataProvider;
  * @author Misbahul D Munir <misbahuldmunir@gmail.com>
  * @since 1.0
  */
-class Assignment extends Model
-{
+class Assignment extends Model {
+
     public $id;
     public $username;
+    public $email;
 
     /**
      * @inheritdoc
      */
-    public function rules()
-    {
+    public function rules() {
         return [
-            [['id', 'username'], 'safe'],
+            [['id', 'username', 'email'], 'safe'],
         ];
     }
 
     /**
      * @inheritdoc
      */
-    public function attributeLabels()
-    {
+    public function attributeLabels() {
         return [
             'id' => Yii::t('rbac-admin', 'ID'),
             'username' => Yii::t('rbac-admin', 'Username'),
+            'username' => Yii::t('rbac-admin', 'Email'),
             'name' => Yii::t('rbac-admin', 'Name'),
         ];
     }
@@ -45,8 +45,7 @@ class Assignment extends Model
      * @param  string                       $usernameField
      * @return \yii\data\ActiveDataProvider
      */
-    public function search($params, $class, $usernameField)
-    {
+    public function search($params, $class, $usernameField) {
         $query = $class::find();
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
@@ -56,8 +55,9 @@ class Assignment extends Model
             return $dataProvider;
         }
 
-        $query->andFilterWhere(['like', $usernameField, $this->username]);
+        $query->andFilterWhere(['ilike', $usernameField, $this->$usernameField]);
 
         return $dataProvider;
     }
+
 }

@@ -10,12 +10,15 @@ $this->params['breadcrumbs'][] = ['label' => Yii::t('rbac-admin', 'Permissions')
 $this->params['breadcrumbs'][] = ['label' => $model->name, 'url' => ['view', 'id' => $model->name]];
 $this->params['breadcrumbs'][] = Yii::t('rbac-admin', 'Update');
 ?>
-<div class="auth-item-update">
-
-	<h1><?= Html::encode($this->title) ?></h1>
-	<?php
-    echo $this->render('_form', [
-        'model' => $model,
-    ]);
-    ?>
+<div class="permission-update">
+    <div class="panel panel-default">
+        <div class="panel-heading"><?= Html::encode($this->title) ?></div>
+        <div class="panel-body">
+            <?php
+            echo $this->render('_form', [
+                'model' => $model,
+            ]);
+            ?>
+        </div>
+    </div>
 </div>

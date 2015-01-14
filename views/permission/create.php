@@ -9,12 +9,17 @@ $this->title = Yii::t('rbac-admin', 'Create Permission');
 $this->params['breadcrumbs'][] = ['label' => Yii::t('rbac-admin', 'Permissions'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="auth-item-create">
+<div class="permission-create">
+    <div class="panel panel-default">
+        <div class="panel-heading"><?= Html::encode($this->title) ?></div>
+        <div class="panel-body">
 
-	<h1><?= Html::encode($this->title) ?></h1>
+            <?php
+            echo $this->render('_form', [
+                'model' => $model,
+            ]);
+            ?>
 
-	<?php echo $this->render('_form', [
-        'model' => $model,
-    ]); ?>
-
+        </div>
+    </div>
 </div>

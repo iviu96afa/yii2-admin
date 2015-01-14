@@ -10,11 +10,14 @@ $this->params['breadcrumbs'][] = ['label' => Yii::t('rbac-admin', 'Menus'), 'url
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="menu-create">
-
-    <h1><?= Html::encode($this->title) ?></h1>
-
-    <?= $this->render('_form', [
-        'model' => $model,
-    ]) ?>
-
+    <div class="panel panel-default">
+        <div class="panel-heading"><?= Html::encode($this->title) ?></div>
+        <div class="panel-body">
+            <?=
+            $this->render('_form', [
+                'model' => $model,
+            ])
+            ?>
+        </div>
+    </div>
 </div>
