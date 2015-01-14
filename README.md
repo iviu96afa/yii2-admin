@@ -19,19 +19,19 @@ The preferred way to install this extension is through [composer](http://getcomp
 Either run
 
 ```
-php composer.phar require mdmsoft/yii2-admin "~1.0"
+php composer.phar require iviu96afa/yii2-admin "~1.0"
 ```
 
 for dev-master
 
 ```
-php composer.phar require mdmsoft/yii2-admin "dev-master"
+php composer.phar require iviu96afa/yii2-admin "dev-master"
 ```
 
 or add
 
 ```
-"mdmsoft/yii2-admin": "~1.0"
+"iviu96afa/yii2-admin": "~1.0"
 ```
 
 to the require section of your `composer.json` file.
@@ -45,7 +45,7 @@ In your application config, add path alias for this extension.
 return [
     ...
     'aliases' => [
-        '@mdm/admin' => 'path/to/your/extracted',
+        '@iviu96afa/admin' => 'path/to/your/extracted',
         ...
     ]
 ];
@@ -60,7 +60,7 @@ Once the extension is installed, simply modify your application configuration as
 return [
 	'modules' => [
 		'admin' => [
-			'class' => 'mdm\admin\Module',
+			'class' => 'iviu96afa\admin\Module',
             ...
 		]
 		...
@@ -73,7 +73,7 @@ return [
 		]
 	],
     'as access' => [
-        'class' => 'mdm\admin\components\AccessControl',
+        'class' => 'iviu96afa\admin\components\AccessControl',
 		'allowActions' => [
 			'admin/*', // add or remove allowed actions to this list
 		]
@@ -94,7 +94,7 @@ http://localhost/path/to/index.php?r=admin/assignment
 
 To use menu manager (optional). Execute yii migration here:
 ```
-yii migrate --migrationPath=@mdm/admin/migrations
+yii migrate --migrationPath=@iviu96afa/admin/migrations
 ```
 
 If You use database (class 'yii\rbac\DbManager') to save rbac data. Execute yii migration here:
@@ -112,7 +112,7 @@ Some controller property maybe need to change. To do that, change it via `contro
 			...,
             'controllerMap' => [
                  'assignment' => [
-                    'class' => 'mdm\admin\controllers\AssignmentController',
+                    'class' => 'iviu96afa\admin\controllers\AssignmentController',
                     'userClassName' => 'path\to\models\User',
                     'idField' => 'user_id', // id field of model User
                 ]
