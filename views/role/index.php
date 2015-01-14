@@ -6,7 +6,7 @@ use kartik\grid\GridView;
 /**
  * @var yii\web\View $this
  * @var yii\data\ActiveDataProvider $dataProvider
- * @var mdm\admin\models\AuthItemSearch $searchModel
+ * @var iviu96afa\admin\models\AuthItemSearch $searchModel
  */
 $this->title = Yii::t('rbac-admin', 'Roles');
 $this->params['breadcrumbs'][] = $this->title;

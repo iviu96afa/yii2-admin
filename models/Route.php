@@ -1,5 +1,5 @@
 <?php
-namespace mdm\admin\models;
+namespace iviu96afa\admin\models;
 /**
  * Route
  *

@@ -1,6 +1,6 @@
 <?php
 
-namespace mdm\admin\components;
+namespace iviu96afa\admin\components;
 
 use Yii;
 use yii\db\Connection;
@@ -14,7 +14,7 @@ use yii\helpers\ArrayHelper;
  * ~~~
  * return [
  *     
- *     'mdm.admin.configs' => [
+ *     'iviu96afa.admin.configs' => [
  *         'db' => 'customDb',
  *         'menuTable' => 'admin_menu',
  *     ]
@@ -24,7 +24,7 @@ use yii\helpers\ArrayHelper;
  * or use [[\Yii::$container]]
  * 
  * ~~~
- * Yii::$container->set('mdm\admin\components\Configs',[
+ * Yii::$container->set('iviu96afa\admin\components\Configs',[
  *     'db' => 'customDb',
  *     'menuTable' => 'admin_menu',
  * ]);
@@ -89,7 +89,7 @@ class Configs extends \yii\base\Object
     public static function instance()
     {
         if (self::$_instance === null) {
-            $type = ArrayHelper::getValue(Yii::$app->params, 'mdm.admin.configs', []);
+            $type = ArrayHelper::getValue(Yii::$app->params, 'iviu96afa.admin.configs', []);
             if (is_array($type) && !isset($type['class'])) {
                 $type['class'] = static::className();
             }

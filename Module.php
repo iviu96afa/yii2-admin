@@ -1,6 +1,6 @@
 <?php
 
-namespace mdm\admin;
+namespace iviu96afa\admin;
 
 use Yii;
 use yii\helpers\Inflector;
@@ -15,7 +15,7 @@ use yii\helpers\Inflector;
  * 'layout' => 'left-menu', // default to null mean use application layout.
  * 'controllerMap' => [
  *     'assignment' => [
- *         'class' => 'mdm\admin\controllers\AssignmentController',
+ *         'class' => 'iviu96afa\admin\controllers\AssignmentController',
  *         'userClassName' => 'app\models\User',
  *         'idField' => 'id'
  *     ]
@@ -78,7 +78,7 @@ class Module extends \yii\base\Module
      * @var string Main layout using for module. Default to layout of parent module.
      * Its used when `layout` set to 'left-menu', 'right-menu' or 'top-menu'.
      */
-    public $mainLayout = '@mdm/admin/views/layouts/main.php';
+    public $mainLayout = '@iviu96afa/admin/views/layouts/main.php';
 
     /**
      * @inheritdoc
@@ -89,12 +89,12 @@ class Module extends \yii\base\Module
         Yii::$app->i18n->translations['rbac-admin'] = [
             'class' => 'yii\i18n\PhpMessageSource',
             'sourceLanguage' => 'en',
-            'basePath' => '@mdm/admin/messages'
+            'basePath' => '@iviu96afa/admin/messages'
         ];
         //user did not define the Navbar?
         if ($this->navbar === null) {
             $this->navbar = [
-                ['label' => Yii::t('rbac-admin', 'Help'), 'url' => 'https://github.com/mdmsoft/yii2-admin/blob/master/docs/guide/basic-usage.md'],
+                ['label' => Yii::t('rbac-admin', 'Help'), 'url' => 'https://github.com/iviu96afa/yii2-admin/blob/master/docs/guide/basic-usage.md'],
                 ['label' => Yii::t('rbac-admin', 'Application'), 'url' => Yii::$app->homeUrl]
             ];
         }

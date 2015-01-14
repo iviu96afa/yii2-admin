@@ -1,15 +1,15 @@
 <?php
 
-namespace mdm\admin\controllers;
+namespace iviu96afa\admin\controllers;
 
-use mdm\admin\models\AuthItem;
-use mdm\admin\models\searchs\AuthItem as AuthItemSearch;
+use iviu96afa\admin\models\AuthItem;
+use iviu96afa\admin\models\searchs\AuthItem as AuthItemSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\rbac\Item;
 use Yii;
-use mdm\admin\components\MenuHelper;
+use iviu96afa\admin\components\MenuHelper;
 use yii\web\Response;
 use yii\helpers\Html;
 

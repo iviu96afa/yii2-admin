@@ -1,15 +1,15 @@
 <?php
 
-namespace mdm\admin\controllers;
+namespace iviu96afa\admin\controllers;
 
 use Yii;
-use mdm\admin\models\Route;
-use mdm\admin\components\MenuHelper;
+use iviu96afa\admin\models\Route;
+use iviu96afa\admin\components\MenuHelper;
 use yii\caching\TagDependency;
 use yii\web\Response;
 use yii\helpers\Html;
-use mdm\admin\components\RouteRule;
-use mdm\admin\components\Configs;
+use iviu96afa\admin\components\RouteRule;
+use iviu96afa\admin\components\Configs;
 use yii\helpers\Inflector;
 use yii\helpers\VarDumper;
 use Exception;
@@ -22,7 +22,7 @@ use Exception;
  */
 class RouteController extends \yii\web\Controller
 {
-    const CACHE_TAG = 'mdm.admin.route';
+    const CACHE_TAG = 'iviu96afa.admin.route';
 
     /**
      * Lists all Route models.

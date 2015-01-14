@@ -1,9 +1,9 @@
 <?php
 
-namespace mdm\admin\models;
+namespace iviu96afa\admin\models;
 
 use Yii;
-use mdm\admin\components\Configs;
+use iviu96afa\admin\components\Configs;
 
 /**
  * This is the model class for table "menu".

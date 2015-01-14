@@ -1,17 +1,17 @@
 <?php
 
-namespace mdm\admin\components;
+namespace iviu96afa\admin\components;
 
 use Yii;
 use yii\caching\TagDependency;
-use mdm\admin\models\Menu;
+use iviu96afa\admin\models\Menu;
 
 /**
  * MenuHelper used to generate menu depend of user role.
  * Usage
  * 
  * ~~~
- * use mdm\admin\components\MenuHelper;
+ * use iviu96afa\admin\components\MenuHelper;
  * use yii\bootstrap\Nav;
  *
  * echo Nav::widget([
@@ -41,7 +41,7 @@ use mdm\admin\models\Menu;
  */
 class MenuHelper
 {
-    const CACHE_TAG = 'mdm.admin.menu';
+    const CACHE_TAG = 'iviu96afa.admin.menu';
 
     /**
      * Use to get assigned menu of user.

@@ -1,6 +1,6 @@
 <?php
 
-namespace mdm\admin\components;
+namespace iviu96afa\admin\components;
 
 use Yii;
 use yii\db\Connection;
@@ -33,9 +33,9 @@ use yii\caching\TagDependency;
  */
 class DbManager extends \yii\rbac\DbManager
 {
-    const PART_ITEMS = 'mdm.admin.items';
-    const PART_CHILDREN = 'mdm.admin.children';
-    const PART_RULES = 'mdm.admin.rules';
+    const PART_ITEMS = 'iviu96afa.admin.items';
+    const PART_CHILDREN = 'iviu96afa.admin.children';
+    const PART_RULES = 'iviu96afa.admin.rules';
 
     /**
      * @var boolean Enable caching
